@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Snickers 1000 ֏</title>
+<meta name="description" content="Snickers շոկոլադե բատոն՝ 1000 դրամ։ Պատվիրիր մեկ րոպեում։">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wdth,wght@62.5..100,400..900&display=swap">
+<style>
+/* Layout: dark cocoa page, split hero (headline | bar cross-section), layer list, order form card */
+:root{
+  --cocoa:#1f130d;
+  --cocoa-2:#2b1b12;
+  --line:#4a3122;
+  --caramel:#e2a13b;
+  --caramel-deep:#b8741c;
+  --nougat:#f3e6cf;
+  --muted:#c4ad92;
+  --error:#ff8a73;
+  --ok:#9fd38a;
+  --f-display:"Noto Sans Armenian",system-ui,sans-serif;
+  --f-body:"Noto Sans Armenian",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--cocoa);color:var(--nougat);
+  font-family:var(--f-body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--caramel)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:20px;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-weight:900;font-stretch:70%;font-size:22px;letter-spacing:.02em}
+.brand span{color:var(--caramel)}
+.top .btn{padding:10px 18px;font-size:15px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-block:28px 56px}
+.hero > *{min-width:0}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--caramel);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+h1{
+  font-family:var(--f-display);font-weight:900;font-stretch:66%;
+  font-size:clamp(46px,8.5vw,96px);line-height:.95;margin:18px 0 18px;
+  text-wrap:balance;letter-spacing:-.005em
+}
+h1 em{font-style:normal;color:var(--caramel)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:34ch;margin:0 0 28px}
+.price-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.price{font-family:var(--f-display);font-weight:900;font-stretch:66%;font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-size:.5em;color:var(--caramel)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--caramel);color:var(--cocoa);font:inherit;font-weight:800;
+  border:0;border-radius:14px;padding:16px 28px;font-size:18px;cursor:pointer;text-decoration:none;
+  transition:transform .15s ease,background .15s ease
+}
+.btn:hover{background:#f0b350;transform:translateY(-1px)}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--nougat);outline-offset:2px}
+
+/* cross-section bar */
+.bar{position:relative;aspect-ratio:1/1;max-width:100%;width:100%}
+.bar svg{width:100%;height:auto;display:block}
+.tag{position:absolute;font-size:13px;font-weight:700;background:var(--cocoa-2);border:1px solid var(--line);border-radius:8px;padding:4px 10px;white-space:nowrap}
+
+/* layers section */
+section{padding-block:48px;border-top:1px solid var(--line)}
+h2{font-family:var(--f-display);font-weight:900;font-stretch:72%;font-size:clamp(32px,5vw,52px);line-height:1.02;margin:0 0 28px;text-wrap:balance}
+.layers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.layer{padding:22px;border-radius:16px;background:var(--cocoa-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.swatch{height:10px;border-radius:5px}
+.layer h3{margin:0;font-size:19px}
+.layer p{margin:0;color:var(--muted);font-size:15px}
+
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.reason{display:flex;flex-direction:column;gap:6px}
+.reason b{font-family:var(--f-display);font-weight:900;font-stretch:70%;font-size:26px;color:var(--caramel)}
+.reason p{margin:0;color:var(--muted)}
+
+/* order */
+.order{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.order > *{min-width:0}
+.steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px}
+.steps li{display:flex;gap:14px;align-items:flex-start}
+.steps .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--caramel);color:var(--cocoa);font-weight:900;display:grid;place-items:center}
+.steps p{margin:4px 0 0;color:var(--muted)}
+form{background:var(--nougat);color:var(--cocoa);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-weight:700;font-size:15px}
+.req{color:var(--caramel-deep)}
+input,textarea{
+  font:inherit;font-size:17px;color:var(--cocoa);background:#fffaf1;
+  border:2px solid #dcc7a6;border-radius:12px;padding:12px 14px;width:100%
+}
+input[aria-invalid="true"]{border-color:#c2412a}
+.phone{display:flex;align-items:stretch}
+.phone span{display:grid;place-items:center;padding:0 12px;background:#ecdcc0;border:2px solid #dcc7a6;border-right:0;border-radius:12px 0 0 12px;font-weight:700;font-variant-numeric:tabular-nums}
+.phone input{border-radius:0 12px 12px 0;font-variant-numeric:tabular-nums}
+.hint{font-size:13px;color:#7a5f45}
+.err{font-size:14px;color:#b0321c;font-weight:600}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:44px;height:44px;border-radius:12px;border:2px solid #dcc7a6;background:#fffaf1;font:inherit;font-size:22px;font-weight:800;cursor:pointer;color:var(--cocoa)}
+.qty input{width:80px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed #dcc7a6;padding-top:14px;font-weight:700}
+.total strong{font-family:var(--f-display);font-stretch:70%;font-size:34px;font-weight:900;font-variant-numeric:tabular-nums}
+form .btn{width:100%}
+.status{border-radius:12px;padding:14px 16px;font-weight:600}
+.status.ok{background:#e3f3db;color:#24531a}
+.status.fail{background:#fbe1da;color:#8a2512}
+
+footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+@media (max-width:860px){
+  .hero,.order{grid-template-columns:1fr}
+  .bar{max-width:420px;margin:0 auto}
+  .layers{grid-template-columns:repeat(2,1fr)}
+  .reasons{grid-template-columns:1fr}
+}
+@media (max-width:440px){
+  .layers{grid-template-columns:1fr}
+  form{padding:20px}
+  .tag{font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand">Snickers<span>.</span>am</div>
+  <a class="btn" href="#order">Պատվիրել</a>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <span class="eyebrow">Շոկոլադ · կարամել · գետնանուշ</span>
+    <h1>Սովա՞ծ ես։ <em>Snickers</em>-ը քո փրկությունն է։</h1>
+    <p class="lead">Կաթնային շոկոլադ, ձգվող կարամել, խրթխրթան գետնանուշ ու փափուկ նուգա՝ մեկ բատոնում։ Կշտացնում է արագ ու համով։</p>
+    <div class="price-row">
+      <div class="price">1000 <small>֏</small></div>
+      <a class="btn" href="#order">Պատվիրել հիմա →</a>
+    </div>
+  </div>
+
+  <div class="bar" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <!-- generic cut chocolate bar, cross-section -->
+      <g transform="rotate(-12 200 200)">
+        <rect x="40" y="120" width="320" height="170" rx="26" fill="#5a3420"/>
+        <rect x="56" y="136" width="288" height="138" rx="16" fill="#f3e6cf"/>
+        <rect x="56" y="136" width="288" height="52" rx="16" fill="#d9902e"/>
+        <rect x="56" y="170" width="288" height="18" fill="#d9902e"/>
+        <g fill="#b07a45" stroke="#8a5a2e" stroke-width="2">
+          <ellipse cx="88" cy="166" rx="15" ry="10"/>
+          <ellipse cx="140" cy="158" rx="14" ry="9"/>
+          <ellipse cx="196" cy="168" rx="16" ry="10"/>
+          <ellipse cx="250" cy="156" rx="13" ry="9"/>
+          <ellipse cx="302" cy="166" rx="15" ry="10"/>
+          <ellipse cx="118" cy="214" rx="9" ry="6" fill="#e3caa0" stroke="none"/>
+          <ellipse cx="228" cy="236" rx="8" ry="5" fill="#e3caa0" stroke="none"/>
+          <ellipse cx="290" cy="218" rx="7" ry="5" fill="#e3caa0" stroke="none"/>
+        </g>
+        <path d="M40 146 Q200 96 360 146 L360 140 Q360 120 334 120 L66 120 Q40 120 40 140Z" fill="#6b4029"/>
+      </g>
+    </svg>
+    <span class="tag" style="left:2%;top:18%">Կաթնային շոկոլադ</span>
+    <span class="tag" style="right:2%;top:36%">Կարամել + գետնանուշ</span>
+    <span class="tag" style="left:12%;bottom:16%">Նուգա</span>
+  </div>
+</div>
+
+<section>
+  <h2>Չորս շերտ, մեկ կծում</h2>
+  <div class="layers">
+    <div class="layer"><div class="swatch" style="background:#6b4029"></div><h3>Կաթնային շոկոլադ</h3><p>Նուրբ ու հալվող շերտ, որ պատում է ամբողջ բատոնը։</p></div>
+    <div class="layer"><div class="swatch" style="background:#d9902e"></div><h3>Կարամել</h3><p>Ձգվող ու քաղցր, հենց այն, ինչ պետք է երեկոյան։</p></div>
+    <div class="layer"><div class="swatch" style="background:#b07a45"></div><h3>Գետնանուշ</h3><p>Բոված ամբողջական հատիկներ, որ խրթխրթում են ատամիդ տակ։</p></div>
+    <div class="layer"><div class="swatch" style="background:#f3e6cf"></div><h3>Նուգա</h3><p>Թեթև ու փափուկ հիմք, որ կշտացնում է։</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Ինչու հենց հիմա</h2>
+  <div class="reasons">
+    <div class="reason"><b>Երբ սովը խանգարում է</b><p>Դասից, աշխատանքից կամ մարզումից հետո մեկ բատոնը քեզ վերադարձնում է կյանքի։</p></div>
+    <div class="reason"><b>Հարմար գին</b><p>Ընդամենը 1000 դրամ։ Վերցրու մի քանիսը՝ քեզ, ընկերներիդ ու պահեստի համար։</p></div>
+    <div class="reason"><b>Պատվերը՝ 1 րոպեում</b><p>Գրիր անունդ ու հեռախոսահամարդ, մենք կզանգենք ու կհամաձայնեցնենք մնացածը։</p></div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="order">
+    <div>
+      <h2>Պատվիրիր քո Snickers-ը</h2>
+      <ol class="steps">
+        <li><span class="n">1</span><div><b>Լրացրու ձևը</b><p>Անուն, հեռախոս, հասցե ու քանակ։</p></div></li>
+        <li><span class="n">2</span><div><b>Մենք կզանգենք</b><p>Կհաստատենք պատվերն ու կպայմանավորվենք առաքման մասին։</p></div></li>
+        <li><span class="n">3</span><div><b>Վայելիր</b><p>Վճարում ես ստանալիս։</p></div></li>
+      </ol>
+    </div>
+
+    <form id="orderForm" novalidate>
+      <div class="field">
+        <label for="name">Անուն, ազգանուն <span class="req">*</span></label>
+        <input id="name" name="name" autocomplete="name" required placeholder="Օրինակ՝ Արամ Սարգսյան">
+        <div class="err" id="nameErr" hidden>Գրիր անունդ։</div>
+      </div>
+
+      <div class="field">
+        <label for="phone">Հեռախոսահամար <span class="req">*</span></label>
+        <div class="phone"><span>+374</span><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required placeholder="91 234 567"></div>
+        <div class="hint">8 թվանշան, օրինակ՝ 91 234 567 կամ 091 234 567</div>
+        <div class="err" id="phoneErr" hidden>Համարը պետք է լինի 8 թվանշան՝ օպերատորի կոդով, օրինակ՝ 91 234 567։</div>
+      </div>
+
+      <div class="field">
+        <label for="address">Հասցե <span class="req">*</span></label>
+        <input id="address" name="address" autocomplete="street-address" required placeholder="Քաղաք, փողոց, շենք, բնակարան">
+        <div class="err" id="addressErr" hidden>Գրիր հասցեն, որ իմանանք՝ ուր բերել։</div>
+      </div>
+
+      <div class="field">
+        <label for="qty">Քանակ</label>
+        <div class="qty">
+          <button type="button" id="minus" aria-label="Պակասեցնել">−</button>
+          <input id="qty" name="qty" type="number" min="1" max="200" value="1" inputmode="numeric">
+          <button type="button" id="plus" aria-label="Ավելացնել">+</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="note">Մեկնաբանություն</label>
+        <textarea id="note" name="note" rows="2" placeholder="Զանգելու հարմար ժամ, մուտք, հարկ…"></textarea>
+      </div>
+
+      <div class="total"><span>Ընդամենը</span><strong id="total">1 000 ֏</strong></div>
+
+      <button class="btn" type="submit" id="submitBtn">Ուղարկել պատվերը</button>
+      <div class="status" id="status" role="status" hidden></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>Գինը՝ 1000 ֏ մեկ հատի համար։ Snickers-ը Mars, Incorporated-ի ապրանքանիշն է։</footer>
+</div>
+
+<script>
+// ← Պատվերները գնում են այս հասցեին
+const ORDER_EMAIL = "petakchyan.anjela@mail.ru";
+const PRICE = 1000;
+
+const f = document.getElementById("orderForm");
+const qty = document.getElementById("qty");
+const totalEl = document.getElementById("total");
+const statusEl = document.getElementById("status");
+const btn = document.getElementById("submitBtn");
+
+const fmt = n => n.toLocaleString("hy-AM").replace(/ |,/g, " ") + " ֏";
+function getQty(){ const n = parseInt(qty.value, 10); return isNaN(n) || n < 1 ? 1 : Math.min(n, 200); }
+function updateTotal(){ totalEl.textContent = fmt(getQty() * PRICE); }
+document.getElementById("minus").onclick = () => { qty.value = Math.max(1, getQty() - 1); updateTotal(); };
+document.getElementById("plus").onclick = () => { qty.value = Math.min(200, getQty() + 1); updateTotal(); };
+qty.addEventListener("input", updateTotal);
+
+// Armenian number → "+374 XX XXX XXX" or null
+function normPhone(raw){
+  let d = raw.replace(/\D/g, "");
+  if (d.startsWith("00374")) d = d.slice(5);
+  else if (d.startsWith("374")) d = d.slice(3);
+  else if (d.startsWith("0")) d = d.slice(1);
+  if (!/^[1-9]\d{7}$/.test(d)) return null;
+  return "+374 " + d.slice(0,2) + " " + d.slice(2,5) + " " + d.slice(5);
+}
+
+function check(id, ok){
+  const el = document.getElementById(id);
+  el.setAttribute("aria-invalid", ok ? "false" : "true");
+  document.getElementById(id + "Err").hidden = ok;
+  return ok;
+}
+
+f.addEventListener("submit", async e => {
+  e.preventDefault();
+  const name = f.name.value.trim();
+  const phone = normPhone(f.phone.value);
+  const address = f.address.value.trim();
+  const okName = check("name", name.length >= 2);
+  const okPhone = check("phone", !!phone);
+  const okAddr = check("address", address.length >= 4);
+  if (!(okName && okPhone && okAddr)) {
+    f.querySelector('[aria-invalid="true"]').focus();
+    return;
+  }
+
+  const q = getQty();
+  btn.disabled = true; btn.textContent = "Ուղարկվում է…";
+  statusEl.hidden = true;
+
+  try {
+    const res = await fetch("https://formsubmit.co/ajax/" + ORDER_EMAIL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: "Նոր պատվեր՝ Snickers × " + q,
+        _template: "table",
+        _captcha: "false",
+        "Անուն": name,
+        "Հեռախոս": phone,
+        "Հասցե": address,
+        "Քանակ": q,
+        "Գումար": fmt(q * PRICE),
+        "Մեկնաբանություն": f.note.value.trim() || "—"
+      })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.success === "false" || data.success === false) throw new Error(data.message || "send failed");
+    statusEl.className = "status ok";
+    statusEl.textContent = "Շնորհակալություն, " + name.split(" ")[0] + "։ Պատվերդ ստացանք, շուտով կզանգենք " + phone + " համարին։";
+    f.reset(); qty.value = 1; updateTotal();
+  } catch (err) {
+    statusEl.className = "status fail";
+    statusEl.textContent = "Պատվերը չուղարկվեց։ Ստուգիր ինտերնետը և նորից փորձիր։";
+  } finally {
+    statusEl.hidden = false;
+    btn.disabled = false; btn.textContent = "Ուղարկել պատվերը";
+  }
+});
+</script>
+</body>
+</html>
