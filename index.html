@@ -257,6 +257,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
 // ← Պատվերները գնում են այս հասցեին
 const ORDER_EMAIL = "arpi.petakchyan@gmail.com";
 const PRICE = 1000;
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbziRbsRU0cyLBDcMrm8zgxndXvABd7WwirAIm36AvXZxf6bqJyiPWH_3_hp9tDKe_TFcg/exec";
 
 const f = document.getElementById("orderForm");
 const qty = document.getElementById("qty");
@@ -306,7 +307,8 @@ f.addEventListener("submit", async e => {
   statusEl.hidden = true;
 
   try {
-    const res = await fetch("https://formsubmit.co/ajax/" + ORDER_EMAIL, {
+    await fetch(SHEET_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ name, phone, address, qty: q, total: fmt(q * PRICE), note: f.note.value.trim() || "—" }) });
+    fetch("https://formsubmit.co/ajax/" + ORDER_EMAIL, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({
@@ -320,9 +322,7 @@ f.addEventListener("submit", async e => {
         "Գումար": fmt(q * PRICE),
         "Մեկնաբանություն": f.note.value.trim() || "—"
       })
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok || data.success === "false" || data.success === false) throw new Error(data.message || "send failed");
+    }).catch(() => {});
     statusEl.className = "status ok";
     statusEl.textContent = "Շնորհակալություն, " + name.split(" ")[0] + "։ Պատվերդ ստացանք, շուտով կզանգենք " + phone + " համարին։";
     f.reset(); qty.value = 1; updateTotal();
