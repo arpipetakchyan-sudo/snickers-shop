@@ -328,7 +328,12 @@ f.addEventListener("submit", async e => {
     f.reset(); qty.value = 1; updateTotal();
   } catch (err) {
     statusEl.className = "status fail";
-    statusEl.textContent = "Պատվերը չուղարկվեց։ Ստուգիր ինտերնետը և նորից փորձիր։";
+    const m = String(err && err.message || "");
+    statusEl.textContent = /activ/i.test(m)
+      ? "Պատվերների ընդունումը դեռ միացված չէ։ Խնդրում ենք փորձել մի փոքր ուշ։"
+      : (err instanceof TypeError
+        ? "Կապ չհաջողվեց հաստատել։ Ստուգիր ինտերնետը և նորից փորձիր։"
+        : "Պատվերը չուղարկվեց։ Խնդրում ենք փորձել մի փոքր ուշ։");
   } finally {
     statusEl.hidden = false;
     btn.disabled = false; btn.textContent = "Ուղարկել պատվերը";
